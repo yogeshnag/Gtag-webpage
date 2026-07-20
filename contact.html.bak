@@ -49,7 +49,7 @@
             </div>
             <div class="submit-row mt-4">
               <button class="btn btn-primary-custom" type="submit">Send Message</button>
-              <span class="note ms-3 text-muted">We typically respond within 3 business day.</span>
+              <span class="note ms-3 text-muted">We typically respond within 1 business day.</span>
             </div>
           </form>
         </div>

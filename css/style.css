@@ -10,3 +10,33 @@ h1,h2,h3{font-family:Poppins,Arial,sans-serif}
 .card-box:hover{transform:translateY(-8px)}
 .btn-primary-custom{background:linear-gradient(45deg,#F9513B,#FD8332);color:white;border:0;border-radius:30px;padding:12px 28px}
 .footer{background:#1f1f1f;color:white;padding:40px}
+
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.form-grid .full{grid-column:1/-1;}
+label{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;color:rgba(255,255,255,.6);text-transform:uppercase;display:block;margin-bottom:.5rem;}
+input,select,textarea{
+  width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.2);
+  color:#fff;padding:.75rem .9rem;border-radius:3px;font-family:var(--font-body);font-size:.95rem;
+}
+input::placeholder,textarea::placeholder{color:rgba(255,255,255,.35);}
+textarea{resize:vertical;min-height:100px;}
+.form-grid label{margin-top:.2rem;}
+.submit-row{margin-top:1.6rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;}
+.submit-row .note{font-size:.82rem;color:rgba(255,255,255,.45);}
+button.btn{cursor:pointer;border:none;font:inherit;}
+
+
+
+/* Contact Form Enhancements */
+.contact-form .form-grid input,
+.contact-form .form-grid select,
+.contact-form .form-grid textarea {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-radius: 8px;
+}
+.contact-form .form-grid select option {
+  background: #1f1f1f;
+  color: #fff;
+}
