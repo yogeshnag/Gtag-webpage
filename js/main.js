@@ -1,20 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const contactForm = document.getElementById('contactForm');
+  const contactForm = document.getElementById('gtagContactForm');
+  const successMessage = document.getElementById('successMessage');
+  const submitBtn = document.getElementById('submitBtn');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault(); // Prevents browser page reload and redirection
+
+      // Disable button and update text during submission
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'Sending...';
+
+      const formData = new FormData(contactForm);
+
+      try {
+        // Submit form data quietly to Zoho
+        await fetch('https://forms.zohopublic.eu/virtualoffice1infogt11/form/GTAGContactForm/formperma/mGD8SjAI0J4uQOaje1HzLvKcP_k4KexQNU4rzhE2pW4/htmlRecords/submit', {
+          method: 'POST',
+          body: formData,
+          mode: 'no-cors' // Allows sending data cross-origin without CORS blocking
+        });
+
+        // Show success message and reset form
+        successMessage.classList.remove('d-none');
+        contactForm.reset();
+        
+        // Scroll smoothly to success message
+        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      } catch (error) {
+        alert('There was an error sending your message. Please try again.');
+        console.error('Submission error:', error);
+      } finally {
+        // Reset button state
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Send Message';
+      }
+    });
+  }
+});
+
   
-    if (contactForm) {
-      contactForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-  
-        const name = encodeURIComponent(document.getElementById('name').value);
-        const email = encodeURIComponent(document.getElementById('email').value);
-        const role = encodeURIComponent(document.getElementById('role').value);
-        const message = encodeURIComponent(document.getElementById('message').value);
-  
-        const subject = encodeURIComponent(`GTAG Inquiry from ${name} (${role})`);
-        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nRole: ${role}\n\nMessage:\n${message}`);
-  
-        // Open default email client cleanly without security warnings
-        window.location.href = `mailto:info@gtag.be?subject=${subject}&body=${body}`;
-      });
-    }
-  });

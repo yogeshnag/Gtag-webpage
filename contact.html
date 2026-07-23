@@ -24,34 +24,42 @@
       <div class="col-lg-8">
         <div class="card-box" style="background: #1f1f1f; color: #fff;">
           <h3 class="mb-4 text-white">Send Us a Message</h3>
-          <form class="contact-form" action="https://forms.zohopublic.eu/virtualoffice1infogt11/form/GTAGContactForm/formperma/mGD8SjAI0J4uQOaje1HzLvKcP_k4KexQNU4rzhE2pW4/htmlRecords/submit" name="form" id="form" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+
+          <!-- Success Alert Message (Hidden initially) -->
+          <div id="successMessage" class="alert alert-success d-none mb-4" role="alert">
+            <strong>Message Sent Successfully!</strong> Thank you for reaching out to GTAG. We will get back to you shortly.
+          </div>
+
+          <!-- Contact Form -->
+          <form class="contact-form" id="gtagContactForm">
             <div class="form-grid">
               <div>
                 <label for="name">Name</label>
-                <input id="name" name="SingleLine" type="text" placeholder="Your full name" required>
+                <input id="name" name="SingleLine" type="text" placeholder="Your full name" required class="form-control">
               </div>
               <div>
                 <label for="email">Email</label>
-                <input id="email" name="Email" type="email" placeholder="you@company.com" required>
+                <input id="email" name="Email" type="email" placeholder="you@company.com" required class="form-control">
               </div>
               <div class="full">
                 <label for="role">I am a</label>
-                <select id="role" name="Dropdown">
-                  <option>Enterprise client</option>
-                  <option>Tech professional</option>
-                  <option>Training candidate</option>
+                <select id="role" name="Dropdown" class="form-select">
+                  <option value="Enterprise client">Enterprise client</option>
+                  <option value="Tech professional">Tech professional</option>
+                  <option value="Training candidate">Training candidate</option>
                 </select>
               </div>
               <div class="full">
                 <label for="message">Message</label>
-                <textarea id="message" name="MultiLine" placeholder="Tell us about your project requirements, consulting needs, or hiring goals."></textarea>
+                <textarea id="message" name="MultiLine" placeholder="Tell us about your project requirements..." required class="form-control" rows="4"></textarea>
               </div>
             </div>
+
             <div class="submit-row mt-4">
-              <button class="btn btn-primary-custom" type="submit">Send Message</button>
-              <span class="note ms-3 text-muted">We typically respond within 3 business day.</span>
+              <button class="btn btn-primary-custom" type="submit" id="submitBtn">Send Message</button>
             </div>
           </form>
+
         </div>
       </div>
     </div>
